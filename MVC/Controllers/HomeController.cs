@@ -9,11 +9,13 @@ namespace MVC.Controllers
             return View();
         }
 
+        [HttpGet("/form")]
         public IActionResult BookForm()
         {
             return View();
         }
 
+        [HttpGet("/list")]
         public IActionResult BookList()
         {
             return View();
