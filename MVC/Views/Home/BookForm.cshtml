@@ -6,5 +6,26 @@
 <h1>Book Form</h1>
 
 <form>
-    <label asp-for="BookTitle"></label>
+    <label asp-for="BookTitle">Book title:</label>
+    <input asp-for="BookTitle" />
+
+    <label asp-for="Author">Author:</label>
+    <input asp-for="Author" />
+
+    <label asp-for="Year">Year:</label>
+    <input asp-for="Year" />
+
+    <label asp-for="Rating">Rating:</label>
+    <select asp-for="Rating">
+        <option value="null"> - </option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+
+    <input asp-for="HaveRead" />
+    <label asp-for="HaveRead">I have read this book</label>
+
 </form>
