@@ -3,10 +3,10 @@
     public class BookModel
     {
         // Properties
-        public required string Title { get; set; }
+        public required string BookTitle { get; set; }
         public required string Author { get; set; }
         public required int Year { get; set; }
-        public int rating { get; set; }
-        public bool haveRead { get; set; }
+        public int Rating { get; set; }
+        public bool HaveRead { get; set; }
     }
 }
