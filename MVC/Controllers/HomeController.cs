@@ -8,5 +8,15 @@ namespace MVC.Controllers
         {
             return View();
         }
+
+        public IActionResult BookForm()
+        {
+            return View();
+        }
+
+        public IActionResult BookList()
+        {
+            return View();
+        }
     }
 }
