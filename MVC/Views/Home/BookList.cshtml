@@ -31,7 +31,12 @@
 
 </div>
 
-@if (ViewBag.AverageRating != null)
-{
-    <h3>Average Rating: @ViewBag.AverageRating</h3>
-}
+<div class="book-info">
+    @await Html.PartialAsync("_BookCount", (int)ViewBag.BookCount)
+
+    @if (ViewBag.AverageRating != null)
+    {
+        <h3>Average Rating: @ViewBag.AverageRating</h3>
+    }
+
+</div>
