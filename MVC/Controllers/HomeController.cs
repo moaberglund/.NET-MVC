@@ -53,7 +53,18 @@ namespace MVC.Controllers
         {
             string jsonString = System.IO.File.ReadAllText("books.json");
             // Deserialize JSON
-            var books = JsonSerializer.Deserialize<List<BookModel>>(jsonString);
+            var books = JsonSerializer.Deserialize<List<BookModel>>(jsonString) ?? new List<BookModel>();
+            // If books.json is empty, return an empty list
+
+            // Filter books with a higher score than 0
+            var ratedBooks = books.Where(b => b.Rating > 0).ToList();
+
+            // Calculate average rating
+            double average = ratedBooks.Count > 0 ? ratedBooks.Average(b => (double)b.Rating) : 0;
+            // If there are rated books, calculate the average rating, otherwise return 0
+
+            // Send AverageRating with ViewBag
+            ViewBag.AverageRating = average;
 
             return View(books);
         }
