@@ -38,6 +38,9 @@ namespace MVC.Controllers
                     jsonString = JsonSerializer.Serialize(books);
                     System.IO.File.WriteAllText("books.json", jsonString);
                 }
+
+                // Clear form
+                ModelState.Clear();
             }
             return View();
         }
