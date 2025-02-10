@@ -5,3 +5,16 @@
 
 <h1>Book List</h1>
 
+<div class="books" >
+ 
+        <div class="book-item">
+            @foreach (var book in Model)
+            {
+                    <h1>@book.BookTitle</h1>
+                    <h2>@book.Author</h2>
+                    <p>@book.Year</p>
+                    <span>@book.Rating</span>
+                    <p>@(book.HaveRead ? "Read" : "Not read")</p>
+            }
+        </div>
+</div>
