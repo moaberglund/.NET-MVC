@@ -8,6 +8,12 @@ namespace MVC.Controllers
     {
         public IActionResult Index()
         {
+            // Hämta senaste boktitel från cookie
+            var lastBookTitle = Request.Cookies["LatestBookTitle"];
+
+            // Skicka till vyn
+            ViewBag.LastBookTitle = lastBookTitle;
+
             return View();
         }
 
@@ -39,6 +45,10 @@ namespace MVC.Controllers
                     jsonString = JsonSerializer.Serialize(books);
                     System.IO.File.WriteAllText("books.json", jsonString);
                 }
+
+                // Save latest title to cookie
+                string LatestBookTitle = model.BookTitle;
+                Response.Cookies.Append("LatestBookTitle", LatestBookTitle);
 
                 // Clear form
                 ModelState.Clear();

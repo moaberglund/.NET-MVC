@@ -6,3 +6,14 @@
 
 <h1>Welcome</h1>
 
+<div class="homepage-box">
+
+    @if (ViewBag.LastBookTitle != null)
+    {
+        <p>Latest added book: <br /> <strong>@ViewBag.LastBookTitle</strong></p>
+    }
+    else
+    {
+        <p>You haven't added a book yet...</p>
+    }
+</div>
