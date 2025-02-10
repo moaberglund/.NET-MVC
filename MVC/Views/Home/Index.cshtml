@@ -17,3 +17,6 @@
         <p>You haven't added a book yet...</p>
     }
 </div>
+<div class="homepage-box">
+    @await Html.PartialAsync("_BookCount", (int)ViewBag.BookCount)
+</div>
