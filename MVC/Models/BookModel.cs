@@ -21,7 +21,7 @@ namespace MVC.Models
         public required int Year { get; set; }
 
         [Range(1, 5)]
-        public int Rating { get; set; }
+        public int? Rating { get; set; }
         public bool HaveRead { get; set; }
     }
 }

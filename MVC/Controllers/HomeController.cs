@@ -41,6 +41,9 @@ namespace MVC.Controllers
 
                 // Clear form
                 ModelState.Clear();
+
+                // Redirect to list
+                return RedirectToAction("BookList", "Home");
             }
             return View();
         }
@@ -48,6 +51,10 @@ namespace MVC.Controllers
         [HttpGet("/list")]
         public IActionResult BookList()
         {
+            string jsonString = System.IO.File.ReadAllText("books.json");
+            // Deserialize JSON
+            var books = JsonSerializer.Deserialize<List<BookModel>>(jsonString);
+
             return View();
         }
     }
