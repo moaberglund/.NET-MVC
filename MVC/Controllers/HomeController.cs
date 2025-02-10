@@ -22,7 +22,7 @@ namespace MVC.Controllers
         public IActionResult BookForm(BookModel model)
         {
             // Validate input
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 // Correct
 
