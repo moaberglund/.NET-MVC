@@ -1,6 +1,18 @@
+using Microsoft.Extensions.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+
+// For session and cache
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(100);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -10,6 +22,9 @@ app.UseStaticFiles();
 app.UseHttpsRedirection();
 
 app.UseRouting();
+
+// Session
+app.UseSession();
 
 app.UseAuthorization();
 
