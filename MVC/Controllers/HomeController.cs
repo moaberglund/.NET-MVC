@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC.Models;
+using System.Text.Json;
 
 namespace MVC.Controllers
 {
@@ -16,16 +17,27 @@ namespace MVC.Controllers
             return View();
         }
 
+        // Send form data POST
         [HttpPost("/form")]
         public IActionResult BookForm(BookModel model)
         {
             // Validate input
             if (!ModelState.IsValid)
             {
-                // Korrekt
-            } else
-            {
-                // Fel
+                // Correct
+
+                string jsonString = System.IO.File.ReadAllText("books.json");
+                // Deserialize JSON
+                var books = JsonSerializer.Deserialize<List<BookModel>>(jsonString);
+
+                // Add new book
+                if (books != null)
+                {
+                    books.Add(model);
+                    // Serialize
+                    jsonString = JsonSerializer.Serialize(books);
+                    System.IO.File.WriteAllText("books.json", jsonString);
+                }
             }
             return View();
         }
