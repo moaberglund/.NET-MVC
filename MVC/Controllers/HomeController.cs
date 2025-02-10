@@ -8,37 +8,9 @@ namespace MVC.Controllers
     {
         public IActionResult Index()
         {
-            // Try to fetch book from cookies
-            var currentBookJson = Request.Cookies["CurrentBook"];
-            BookModel currentBook = null;
-
-            if (!string.IsNullOrEmpty(currentBookJson))
-            {
-                currentBook = JsonSerializer.Deserialize<BookModel>(currentBookJson);
-            }
-            return View(currentBook);
+            return View();
         }
 
-        // Send current book to Cookie
-        [HttpPost]
-        public IActionResult SetCurrentBook(BookModel model)
-        {
-            if(ModelState.IsValid)
-            {
-                // Serialize book
-                var bookJson = JsonSerializer.Serialize(model);
-
-                // Set cookie
-                Response.Cookies.Append("CurrentBook", bookJson, new Microsoft.AspNetCore.Http.CookieOptions
-                {
-                    Expires = DateTimeOffset.Now.AddDays(30),
-                    HttpOnly = true
-                });
-
-                return RedirectToAction("Index");
-            }
-            return View("Index", model);
-        }
 
         [HttpGet("/form")]
         public IActionResult BookForm()
