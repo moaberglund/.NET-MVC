@@ -14,7 +14,7 @@ body {
 }
 
 main {
-    height: 85dvh;
+    min-height: 85dvh;
     
 }
 
@@ -23,7 +23,7 @@ main {
     padding: 2em;
     border: 1px solid black;
     width: 300px;
-    margin: 0 auto;
+    margin: 2em auto;
     border-radius: 5px;
     background-color: #f8f9fa;
     line-height: 1.5em;
@@ -64,7 +64,6 @@ header {
 
 h1 {
     text-align: center;
-    margin: 20px 0;
 }
 
 h3 {
@@ -86,6 +85,14 @@ h3 {
     text-align: center;
     line-height: 1.5;
 }
+    .book h1 {
+        font-size: 1.2em;
+        margin: 0.5em 0;
+    }
+    .book h2 {
+        font-size: 1em;
+        margin: 0.5em 0;
+    }
 
 form {
     display: flex;
@@ -128,4 +135,5 @@ form {
 footer {
     text-align: center;
     padding: 10px 0;
+    bottom: 0;
 }
