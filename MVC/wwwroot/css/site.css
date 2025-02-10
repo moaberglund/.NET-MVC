@@ -7,6 +7,59 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+main {
+    height: 85dvh;
+    
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+    header nav {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+        header nav ul {
+            display: flex;
+            list-style-type: none;
+            padding: 1em;
+        }
+
+            header nav ul li {
+                margin: 0 1em;
+            }
+
+                header nav ul li a {
+                    color: white;
+                    text-decoration: none;
+                    font-size: 1.2em;
+                    letter-spacing: 1px;
+                }
+                    header nav ul li a:hover {
+                        color: beige;
+                    }
+
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 3em;
+}
 .books {
     display: flex;
     flex-wrap: wrap;
@@ -26,10 +79,11 @@
 form {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 350px;
+    max-width: 98%;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 20px 0;
+    margin: 0 auto;
 }
 
     form label {
@@ -45,7 +99,7 @@ form {
         margin-top: 2px;
     }
 
-    form label, div, input[type="submit"] {
+    form label, div {
         margin-top: 1em;
     }
 
@@ -57,4 +111,10 @@ form {
         border-radius: 5px;
         cursor: pointer;
         font-size: 1em;
+        margin-top: 2em;
     }
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+}
