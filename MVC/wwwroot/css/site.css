@@ -22,3 +22,39 @@
     text-align: center;
     line-height: 1.5;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+    form label {
+        font-weight: bold;
+        color: #313338;
+        color: #313338;
+    }
+
+    form input, select, option {
+        padding: 0.7em;
+        border-radius: 5px;
+        border: 1px solid black;
+        margin-top: 2px;
+    }
+
+    form label, div, input[type="submit"] {
+        margin-top: 1em;
+    }
+
+    form input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 0.7em;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+    }
