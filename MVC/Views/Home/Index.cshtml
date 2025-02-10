@@ -1,3 +1,32 @@
-﻿@{
+﻿@model MVC.Models.BookModel
+@{
     ViewData["Title"] = "Home Page";
 }
+
+
+<h1>Welcome</h1>
+
+<h1>Welcome to the Book Tracker!</h1>
+
+@if (Model != null && !string.IsNullOrEmpty(Model.BookTitle))
+{
+    <p>You are currently reading: <strong>@Model.BookTitle</strong> by @Model.Author</p>
+}
+else
+{
+    <p>You haven't selected a book to read yet.</p>
+}
+
+<h2>What are you currently reading?</h2>
+
+<form method="post" asp-action="SetCurrentBook">
+    <label asp-for="BookTitle">Book title:</label>
+    <input asp-for="BookTitle" value="@Model?.BookTitle" />
+    <span asp-validation-for="BookTitle"></span>
+
+    <label asp-for="Author">Author:</label>
+    <input asp-for="Author" value="@Model?.Author" />
+    <span asp-validation-for="Author"></span>
+
+    <input type="submit" value="Save" />
+</form>
