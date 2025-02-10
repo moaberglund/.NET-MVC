@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC.Models;
 using System.Text.Json;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace MVC.Controllers
 {
@@ -8,6 +9,12 @@ namespace MVC.Controllers
     {
         public IActionResult Index()
         {
+            var jsonString = System.IO.File.ReadAllText("books.json");
+            var books = JsonSerializer.Deserialize<List<BookModel>>(jsonString) ?? new List<BookModel>();
+
+            // Count of books
+            ViewBag.BookCount = books.Count;
+
             // Hämta senaste boktitel från cookie
             var lastBookTitle = Request.Cookies["LatestBookTitle"];
 
@@ -66,6 +73,9 @@ namespace MVC.Controllers
             // Deserialize JSON
             var books = JsonSerializer.Deserialize<List<BookModel>>(jsonString) ?? new List<BookModel>();
             // If books.json is empty, return an empty list
+
+            // Count of books
+            ViewBag.BookCount = books.Count;
 
             // Filter books with a higher score than 0
             var ratedBooks = books.Where(b => b.Rating > 0).ToList();
