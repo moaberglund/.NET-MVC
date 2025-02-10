@@ -55,7 +55,7 @@ namespace MVC.Controllers
             // Deserialize JSON
             var books = JsonSerializer.Deserialize<List<BookModel>>(jsonString);
 
-            return View();
+            return View(books);
         }
     }
 }
