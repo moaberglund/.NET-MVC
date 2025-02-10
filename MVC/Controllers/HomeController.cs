@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MVC.Models;
 
 namespace MVC.Controllers
 {
@@ -12,6 +13,20 @@ namespace MVC.Controllers
         [HttpGet("/form")]
         public IActionResult BookForm()
         {
+            return View();
+        }
+
+        [HttpPost("/form")]
+        public IActionResult BookForm(BookModel model)
+        {
+            // Validate input
+            if (!ModelState.IsValid)
+            {
+                // Korrekt
+            } else
+            {
+                // Fel
+            }
             return View();
         }
 
