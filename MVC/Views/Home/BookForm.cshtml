@@ -5,15 +5,18 @@
 
 <h1>Book Form</h1>
 
-<form>
+<form method="post">
     <label asp-for="BookTitle">Book title:</label>
     <input asp-for="BookTitle" />
+    <span asp-validation-for="BookTitle"></span>
 
     <label asp-for="Author">Author:</label>
     <input asp-for="Author" />
+    <span asp-validation-for="Author"></span>
 
     <label asp-for="Year">Year:</label>
     <input asp-for="Year" />
+    <span asp-validation-for="Year"></span>
 
     <label asp-for="Rating">Rating:</label>
     <select asp-for="Rating">
@@ -28,4 +31,5 @@
     <input asp-for="HaveRead" type="checkbox" />
     <label asp-for="HaveRead">I have read this book</label>
 
+    <input type="submit" value="Add book" />
 </form>
