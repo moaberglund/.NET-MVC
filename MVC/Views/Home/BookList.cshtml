@@ -14,7 +14,17 @@
             <h1>@book.BookTitle</h1>
             <h2>@book.Author</h2>
             <p>@book.Year</p>
-            <span>@book.Rating</span>
+            @for (int i = 1; i <= 5; i++)
+            {
+                if (book.Rating.HasValue && i <= book.Rating.Value)
+                {
+                    <span style="color: gold;">&#9733;</span> <!-- Gold star -->
+                }
+                else
+                {
+                    <span style="color: lightgray;">&#9734;</span> <!-- Empty star -->
+                }
+            }
             <p>@(book.HaveRead ? "Read" : "Not read")</p>
         </div>
     }
